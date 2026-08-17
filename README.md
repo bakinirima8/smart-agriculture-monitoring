@@ -129,7 +129,6 @@ Possible improvements include:
 - DHT22
 - PIR sensor
 - ADC
-- Embedded System
   # Author
   Rima Bakini 
 - Embedded systems
