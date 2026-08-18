@@ -63,7 +63,7 @@ Expected behavior:
 
 ### 4 .Soil Moisture condition
 
-![Soil Moisture Test](warning-test.png)
+![Soil Moisture Test](warning-alert.png)
 
 The potentiometer is used to simulate the soil moisture sensor. When the soil moisture level falls below 30%, the system detects dry soil.
 
@@ -83,7 +83,7 @@ Expected behavior:
 - No alarm
 - Sensor values are displayed in the Serial Monitor
 
-![Normal Conditions](normal-condition.png)
+![Normal Conditions](normal-conditions.png)
 
 ### 4. Motion Detection
 
