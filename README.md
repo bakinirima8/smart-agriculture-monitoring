@@ -25,6 +25,7 @@ For the Wokwi simulation, a potentiometer is used to simulate the output of a so
 ### Hardware Implementation Concept
 
 ![Hardware Implementation Concept](real_life_simulation.png)
+
 ## Components
 
 - ESP32 DevKit
@@ -138,6 +139,70 @@ Possible improvements include:
 - PIR sensor
 - ADC
  - Embedded systems
+
+## Testing
+
+The system was tested in the Wokwi simulation to verify the behavior of the sensors, indicators and alarm system.
+
+### 1. Password Authentication
+
+When the system starts, the user must enter the password through the Serial Monitor.
+
+Correct password:
+
+`soilbox`
+
+After successful authentication, the system displays:
+
+`WELCOME TO SOILBOX`
+
+### 2. Temperature and Humidity
+
+The DHT22 sensor is used to measure:
+
+- Temperature
+- Humidity
+
+The measurements are displayed through the Serial Monitor.
+
+A temperature above 30°C is considered a high-temperature condition.
+
+### 3. Soil Moisture
+
+A potentiometer is used to simulate a soil-moisture sensor.
+
+The analog value is converted into a percentage.
+
+A soil moisture level below 30% is considered a dry-soil condition.
+
+### 4. LED Indicators
+
+The three LEDs indicate the current environmental condition:
+
+| Condition | LED |
+|---|---|
+| Normal | 🟢 Green |
+| Warning | 🟡 Yellow |
+| Critical / Dry soil + high temperature | 🔴 Red |
+
+### 5. Motion Detection
+
+The PIR sensor detects movement.
+
+When motion is detected, the buzzer produces an alert.
+
+### 6. Buzzer Alerts
+
+The buzzer provides different alerts depending on the detected condition:
+
+- High temperature → warning tone
+- Dry soil → warning tone
+- High temperature + dry soil → critical alert
+- Motion detected → motion alert
+
+### Test Result
+
+All implemented functions were successfully tested in the Wokwi simulation, including sensor readings, password authentication, LED indicators and buzzer alerts.
   
   # Author
   Rima Bakini 
