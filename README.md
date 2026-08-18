@@ -24,7 +24,7 @@ For the Wokwi simulation, a potentiometer is used to simulate the output of a so
 
 ### Hardware Implementation Concept
 
-![real lige simulation](real_life_simulation.png)
+![real life simulation](real_life_simulation.png)
 
 ## Components
 
