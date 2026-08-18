@@ -52,8 +52,12 @@ The system requires a password before monitoring begins.
 
 ### 2. temperature Condition 
 
-The DHT22 temperature was increased above the 30°C threshold.
 
+**Test values:**
+- Temperature: 80.0°C
+- Soil moisture: 50%
+- Motion: No
+  
 Expected behavior:
 - Red LED turns ON
 - Buzzer is activated
@@ -77,6 +81,11 @@ Expected behavior:
 ### 3. Normal Environmental Conditions
 
 The temperature was set to approximately 21°C and soil moisture to 50%.
+
+**Test values:**
+- Temperature: 21.4°C
+- Soil moisture: 50%
+- Motion: No
 
 Expected behavior:
 - Green LED turns ON
