@@ -16,7 +16,15 @@ The system monitors:
 Three LEDs are used to indicate the general condition of the environment, while a buzzer provides alerts when necessary.
 
 For the Wokwi simulation, a potentiometer is used to simulate the output of a soil-moisture sensor.
+## Project Preview
 
+### Wokwi Simulation
+
+![Wokwi Simulation](wokwi-simulation.png)
+
+### Hardware Implementation Concept
+
+![Hardware Implementation Concept](real-life-concept.png)
 ## Components
 
 - ESP32 DevKit
