@@ -20,11 +20,11 @@ For the Wokwi simulation, a potentiometer is used to simulate the output of a so
 
 ### Wokwi Simulation
 
-![Wokwi Simulation](wokwi-simulation.png)
+![Wokwi Simulation](woikwi-simulation.png)
 
 ### Hardware Implementation Concept
 
-![Hardware Implementation Concept](real-life-concept.png)
+![Hardware Implementation Concept](real-life-simulation.png)
 ## Components
 
 - ESP32 DevKit
