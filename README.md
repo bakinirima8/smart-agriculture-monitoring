@@ -231,9 +231,6 @@ The PIR sensor was tested by simulating movement in the Wokwi environment.
 The Wokwi simulation successfully demonstrated the main functions of the Smart Agriculture Monitoring System. The ESP32 was able to read environmental data, evaluate soil moisture and temperature conditions, detect motion, and provide visual and audible alerts based on the detected conditions.
 
 ## Limitations
-The current version is a simulation. The potentiometer is used instead of a physical soil-moisture sensor.
-
-The system does not currently control a real irrigation pump or provide remote monitoring.
 
 The main limitations are:
 
@@ -271,5 +268,3 @@ The project could be extended into a more complete IoT agriculture system by add
   # Author
   Rima Bakini 
 
-## Author
-$$
