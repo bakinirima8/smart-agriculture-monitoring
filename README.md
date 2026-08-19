@@ -46,6 +46,18 @@ The system is built around an ESP32 microcontroller. It collects data from the D
 │ Soil Moisture│     └──────────┘
 │ Simulation   │
 └──────────────┘ 
+
+## Pin Configuration
+
+| Component | Connection | ESP32 GPIO |
+|---|---|---:|
+| DHT22 | SDA / Data | GPIO 4 |
+| PIR Sensor | OUT | GPIO 27 |
+| Potentiometer | Signal | GPIO 34 |
+| Green LED | Anode through resistor | GPIO 16 |
+| Yellow LED | Anode through resistor | GPIO 17 |
+| Red LED | Anode through resistor | GPIO 18 |
+| Buzzer | Positive | GPIO 25 |
 ## Components
 
 - ESP32 DevKit
@@ -58,15 +70,6 @@ The system is built around an ESP32 microcontroller. It collects data from the D
 - 3 × 220Ω resistors
 - Buzzer
 
-| Component | ESP32 GPIO |
-|---|---:|
-| DHT22 Data | GPIO 4 |
-| PIR OUT | GPIO 27 |
-| Soil Moisture / Potentiometer | GPIO 34 |
-| Buzzer | GPIO 25 |
-| Green LED | GPIO 16 |
-| Yellow LED | GPIO 17 |
-| Red LED | GPIO 18 |
 
 ## System Logic
 
@@ -115,48 +118,6 @@ The Wokwi simulation files are included in this repository:
 
 - `diagram.json` — circuit configuration
 - `sketch.ino` — ESP32 firmware
-
-## Testing
-
-The system was tested by changing the potentiometer value to simulate different soil-moisture levels and by changing the environmental conditions in the simulation.
-
-The following functions were tested:
-
-- DHT22 temperature readings
-- DHT22 humidity readings
-- Soil-moisture simulation
-- PIR motion detection
-- Green, yellow and red LED indicators
-- Buzzer alerts
-- Password protection
-- Serial Monitor output
-
-## Limitations
-The current version is a simulation. The potentiometer is used instead of a physical soil-moisture sensor.
-
-The system does not currently control a real irrigation pump or provide remote monitoring.
-
-## Future Improvements
-Possible improvements include:
-
-- Replace the potentiometer with a real capacitive soil-moisture sensor
-- Add automatic irrigation using a water pump
-- Add a relay or MOSFET-based pump control
-- Connect the ESP32 to Wi-Fi
-- Create a web or mobile monitoring dashboard
-- Store sensor measurements for later analysis
-- Add notifications when the soil becomes too dry
-
-## Technologies
-
-- ESP32
-- C++
-- Arduino framework
-- Wokwi
-- DHT22
-- PIR sensor
-- ADC
- - Embedded systems
 
 ## Testing and Results
 
@@ -269,19 +230,46 @@ The PIR sensor was tested by simulating movement in the Wokwi environment.
 
 The Wokwi simulation successfully demonstrated the main functions of the Smart Agriculture Monitoring System. The ESP32 was able to read environmental data, evaluate soil moisture and temperature conditions, detect motion, and provide visual and audible alerts based on the detected conditions.
 
-## Pin Configuration
+## Limitations
+The current version is a simulation. The potentiometer is used instead of a physical soil-moisture sensor.
 
-| Component | Connection | ESP32 GPIO |
-|---|---|---:|
-| DHT22 | SDA / Data | GPIO 4 |
-| PIR Sensor | OUT | GPIO 27 |
-| Potentiometer | Signal | GPIO 34 |
-| Green LED | Anode through resistor | GPIO 16 |
-| Yellow LED | Anode through resistor | GPIO 17 |
-| Red LED | Anode through resistor | GPIO 18 |
-| Buzzer | Positive | GPIO 25 |
-  
+The system does not currently control a real irrigation pump or provide remote monitoring.
+
+The main limitations are:
+
+- The potentiometer is used to simulate soil moisture instead of a physical soil-moisture sensor.
+- The system does not currently control a real irrigation pump.
+- Sensor data is only displayed through the Serial Monitor.
+- There is no remote monitoring or cloud connection.
+- The password system is a basic local authentication mechanism for the prototype.
+
+## Future Improvements
+
+The project could be extended into a more complete IoT agriculture system by adding:
+
+- A real capacitive soil-moisture sensor.
+- Automatic irrigation using a water pump and relay/MOSFET.
+- Wi-Fi connectivity using the ESP32.
+- A web or mobile dashboard for real-time monitoring.
+- Cloud storage for sensor measurements.
+- Notifications when soil moisture becomes too low.
+- Data logging and historical analysis.
+- Multiple soil and environmental sensors for larger agricultural areas.
+
+## Technologies Used
+
+- **ESP32**
+- **C++ / Arduino framework**
+- **Wokwi**
+- **DHT22**
+- **PIR motion sensor**
+- **Analog input / ADC**
+- **Embedded systems**
+- **IoT concepts**
+
+
   # Author
   Rima Bakini 
 
 ## Author
+$$
