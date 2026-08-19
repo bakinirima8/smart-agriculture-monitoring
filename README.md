@@ -210,69 +210,118 @@ Possible improvements include:
 - ADC
  - Embedded systems
 
-## Testing
+## Testing and Results
 
-The system was tested in the Wokwi simulation to verify the behavior of the sensors, indicators and alarm system.
+The system was tested in the Wokwi simulation under different conditions to verify the behavior of the sensors, LEDs, buzzer, and password authentication.
 
 ### 1. Password Authentication
 
-When the system starts, the user must enter the password through the Serial Monitor.
+The system starts by requesting a password through the Serial Monitor.
 
-Correct password:
+The correct password unlocks the monitoring system and displays a welcome message.
 
-`soilbox`
+**Expected behavior:**
+- Correct password → system unlocked
+- Incorrect password → access denied
+- Green LED briefly turns ON after successful authentication
 
-After successful authentication, the system displays:
+![Password Authentication](password_authentification.png)
 
-`WELCOME TO SOILBOX`
+---
 
-### 2. Temperature and Humidity
+### 2. Normal Conditions
 
-The DHT22 sensor is used to measure:
+The system was tested under normal environmental conditions.
 
-- Temperature
-- Humidity
+**Test values:**
+- Temperature: 21.4°C
+- Soil moisture: 50%
+- Motion: No
 
-The measurements are displayed through the Serial Monitor.
+**Expected behavior:**
+- 🟢 Green LED turns ON
+- Buzzer remains OFF
+- Sensor readings are displayed in the Serial Monitor
 
-A temperature above 30°C is considered a high-temperature condition.
+![Normal Conditions](normal-conditions.png)
 
-### 3. Soil Moisture
+---
 
-A potentiometer is used to simulate a soil-moisture sensor.
+### 3. Soil Moisture Test
 
-The analog value is converted into a percentage.
+The potentiometer is used to simulate the soil-moisture sensor in the Wokwi environment.
 
-A soil moisture level below 30% is considered a dry-soil condition.
+When the soil moisture falls below the 30% threshold, the system detects a dry-soil condition.
 
-### 4. LED Indicators
+**Expected behavior:**
+- Soil moisture below 30% → dry soil detected
+- 🟡 Yellow LED turns ON when temperature is normal
+- 🔊 Buzzer is activated
+- Soil moisture value is displayed in the Serial Monitor
 
-The three LEDs indicate the current environmental condition:
+![Soil Moisture Test](soil-test.png)
 
-| Condition | LED |
-|---|---|
-| Normal | 🟢 Green |
-| Warning | 🟡 Yellow |
-| Critical / Dry soil + high temperature | 🔴 Red |
+---
 
-### 5. Motion Detection
+### 4. Warning Alert
 
-The PIR sensor detects movement.
+The system was tested with one environmental condition exceeding its defined limit.
 
-When motion is detected, the buzzer produces an alert.
+**Expected behavior:**
+- One abnormal condition is detected
+- 🟡 Yellow LED turns ON
+- 🔊 Buzzer is activated
+- Sensor values are displayed in the Serial Monitor
 
-### 6. Buzzer Alerts
+![Warning Alert](warning_alert.png)
 
-The buzzer provides different alerts depending on the detected condition:
+---
 
-- High temperature → warning tone
-- Dry soil → warning tone
-- High temperature + dry soil → critical alert
-- Motion detected → motion alert
+### 5. Critical Alert
 
-### Test Result
+The system was tested with both high temperature and low soil moisture at the same time.
 
-All implemented functions were successfully tested in the Wokwi simulation, including sensor readings, password authentication, LED indicators and buzzer alerts.
+**Expected behavior:**
+- High temperature is detected
+- Dry soil is detected
+- 🔴 Red LED turns ON
+- 🔊 Buzzer produces a critical alert
+- Sensor values are displayed in the Serial Monitor
+
+![Critical Alert](critical_alert.png)
+
+---
+
+### 6. Motion Detection
+
+The PIR sensor was tested by simulating movement in the Wokwi environment.
+
+**Expected behavior:**
+- Motion is detected
+- Serial Monitor displays `Motion: YES`
+- 🔊 Buzzer is activated
+- The LED continues to indicate the current environmental condition
+
+![Motion Detection](motion_alert.png)
+
+---
+
+## Test Summary
+
+| Test | Condition | Expected Result |
+|---|---|---|
+| Password Authentication | Correct/incorrect password | Access granted or denied |
+| Normal Conditions | Normal temperature and soil moisture | 🟢 Green LED |
+| Soil Moisture | Soil moisture below 30% | 🟡 Yellow LED + buzzer |
+| Warning Alert | One abnormal condition | 🟡 Yellow LED + buzzer |
+| Critical Alert | High temperature + dry soil | 🔴 Red LED + buzzer |
+| Motion Detection | PIR detects movement | 🔊 Buzzer alert |
+
+## Conclusion
+
+The Wokwi simulation successfully demonstrated the main functions of the Smart Agriculture Monitoring System. The ESP32 was able to read environmental data, evaluate soil moisture and temperature conditions, detect motion, and provide visual and audible alerts based on the detected conditions.
+
+
   
   # Author
   Rima Bakini 
