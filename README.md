@@ -243,7 +243,7 @@ The system was tested under normal environmental conditions.
 - Buzzer remains OFF
 - Sensor readings are displayed in the Serial Monitor
 
-![Normal Conditions](normal-conditions.png)
+![Normal Conditions](normal_conditions.png)
 
 ---
 
@@ -259,7 +259,7 @@ When the soil moisture falls below the 30% threshold, the system detects a dry-s
 - 🔊 Buzzer is activated
 - Soil moisture value is displayed in the Serial Monitor
 
-![Soil Moisture Test](soil-test.png)
+![Soil Moisture Test](soil_test.png)
 
 ---
 
