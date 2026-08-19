@@ -26,6 +26,26 @@ For the Wokwi simulation, a potentiometer is used to simulate the output of a so
 
 ![real life simulation](real_life_simulation.png)
 
+## System Architecture
+
+The system is built around an ESP32 microcontroller. It collects data from the DHT22, PIR sensor, and simulated soil-moisture input, then processes the measurements and controls the LEDs and buzzer according to predefined thresholds.
+
+                    ┌─────────────┐
+                    │   DHT22     │
+                    │Temp/Humidity│
+                    └─────┬───────┘
+                          │
+                          │   
+┌──────────────┐     ┌────▼─────┐     ┌──────────────┐
+│     PIR      │────►│          │────►│ Green LED    │
+│ Motion       │     │          │     │ Yellow LED   │
+└──────────────┘     │   ESP32  │     │ Red LED      │
+                     │          │     └──────────────┘
+┌──────────────┐     │          │
+│ Potentiometer│────►│          │────► Buzzer
+│ Soil Moisture│     └──────────┘
+│ Simulation   │
+└──────────────┘ 
 ## Components
 
 - ESP32 DevKit
@@ -249,7 +269,17 @@ The PIR sensor was tested by simulating movement in the Wokwi environment.
 
 The Wokwi simulation successfully demonstrated the main functions of the Smart Agriculture Monitoring System. The ESP32 was able to read environmental data, evaluate soil moisture and temperature conditions, detect motion, and provide visual and audible alerts based on the detected conditions.
 
+## Pin Configuration
 
+| Component | Connection | ESP32 GPIO |
+|---|---|---:|
+| DHT22 | SDA / Data | GPIO 4 |
+| PIR Sensor | OUT | GPIO 27 |
+| Potentiometer | Signal | GPIO 34 |
+| Green LED | Anode through resistor | GPIO 16 |
+| Yellow LED | Anode through resistor | GPIO 17 |
+| Red LED | Anode through resistor | GPIO 18 |
+| Buzzer | Positive | GPIO 25 |
   
   # Author
   Rima Bakini 
